@@ -14,7 +14,7 @@ else
 <head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Appointments Page</title>
+<title>Sales Page</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -34,9 +34,10 @@ else
 			<li><a href="index.php">Home</a></li>
 			<li><a href="view_plots.php">Plots</a></li>
 			<li><a href="apartments.php">Apartments</a></li>
-			<li class="first current_page_item"><a href="appointments.php">Appointments</a></li>
-			<li><a href="sales.php">Sales</a></li>
+			<li><a href="appointments.php">Appointments</a></li>
+			<li class="first current_page_item"><a href="sales.php">Sales</a></li>
 			<li><a href="reports.php">Reports</a></li>
+		 
 		 
 		 
 		</ul>
@@ -45,20 +46,19 @@ else
 	 
 	<div id="page">
 		<div id="content">
-			<?php
-			
-			 
-			echo " Appointments page <br> ";
-			
-			?>
 			<br /><br /><br /><br />
 	        <table  border="1">
               <tr>
-                <th>Date</th>
-                <th>with</th>
-                <th>time</th>
-                <th>place </th>
-                <th>contact info</th>
+                <th>Plot_Id</th>
+                <th>Plot_No</th>
+                <th>Address</th>
+                <th>Sale</th>
+                <th>Date_of_sale </th>
+                <th> sold</th>
+                <th> advance</th>
+                <th> balance_amount</th>
+                <th>installment</th>
+                <th>contact</th>
 				<th> Edit</th>
               </tr>
               <tr>
@@ -68,10 +68,20 @@ else
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
 				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+				<td>&nbsp;</td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
@@ -90,7 +100,7 @@ else
      
     <br class="clearfix" />
      </div>  
-    <!-- footer end --> 
+    <!-- footer end -->
 </div>
 </div>
 

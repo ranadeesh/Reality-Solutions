@@ -12,16 +12,15 @@ else
     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
     <html xmlns="http://www.w3.org/1999/xhtml">
-<!--Header tag opening-->
+
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Apartments</title>
+        <title>Reports Page</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
-<!--Header tag closing-->
-<!--body tag opening-->
+
     <body>
         <div id="wrapper">
             <div id="header">
@@ -37,10 +36,10 @@ else
                 <ul>
                     <li><a href="index.php">Home</a></li>
                     <li><a href="view_plots.php">Plots</a></li>
-                    <li class="first current_page_item"><a href="apartments.php">Apartments</a></li>
+                    <li><a href="apartments.php">Apartments</a></li>
                     <li><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
-                    <li><a href="reports.php">Reports</a></li>
+                    <li class="first current_page_item"><a href="reports.php">Reports</a></li>
 
 
                 </ul>
@@ -52,19 +51,37 @@ else
                     <?php
 			
 			 
-			echo "   Apartments page ";
+			echo " Reports page <br> ";
 			
 			?>
-                        <table border="1">
+                        <br />
+                        <br />
+                        <br />
+                        <br />
+                        <table border="1" width="80%">
                             <tr>
-                                <th>Apartments Type</th>
-                                <th>Address </th>
-                                <th>Monthly rent</th>
-                                <th>Lease availability </th>
-                                <th>forsale</th>
-                                <th> Edit</th>
+                                <th>SaleI_tem_type </th>
+                                <th>plot/appartment</th>
+                                <th>address</th>
+                                <th>sold_to</th>
+                                <th> sold_amount</th>
+                                <th>balance</th>
+                                <th> payment_dond</th>
+                                <th> payment_remaining</th>
                             </tr>
                             <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
                                 <td>&nbsp;</td>
@@ -78,8 +95,6 @@ else
 
                 <br class="clearfix" />
             </div>
-
-
             <!-- footer bigin -->
 
             <div id="footer">
@@ -88,10 +103,9 @@ else
                 <br class="clearfix" />
             </div>
             <!-- footer end -->
-
         </div>
         </div>
 
     </body>
-<!--Closing of body tag-->
+
     </html>

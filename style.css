@@ -254,6 +254,7 @@ li a.active {
 	position: relative;
 	width: 890px;
 	margin: 0;
+	height: auto;
 }
 
 #page .section-list {
@@ -286,6 +287,7 @@ li a.active {
 	background: #6E6E6E url(images/img03.jpg) top left no-repeat;
 	border: solid 1px #7E7E7E;
 	width: 888px;
+	height: auto;
 	padding: 45px 45px 0 45px;
 	color: #DCDCDC;
 	border-bottom-left-radius: 5px;
@@ -316,7 +318,9 @@ li a.active {
 
 #page-bottom-content {
 	width: 665px;
+	height: auto;
 	float: left;menu
+	
 	
 }
 

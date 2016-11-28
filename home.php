@@ -1,5 +1,5 @@
- <!--Php session for user name and displaying his name in the browser -->
-  <?php
+ <?php
+ //session starts
  session_start();
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
@@ -9,28 +9,28 @@ else
  header("Location:index.php");
  }
  ?>
- <!--html tags starts -->
- 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<head>		<!-- opening of head tag -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+<!-- header tag starts -->
+<head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
 <title>Home | Employee </title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-<!-- linking the page into the style sheet -->
 <link rel="stylesheet" type="text/css" href="style.css" />
-</head>		<!-- Close of Head tag -->
+</head>
+<!-- header tag closes -->
 
-<body>    <!-- Body tag starts -->
-
+<!--body tag opens -->
+<body>
 <div id="wrapper">
 	<div id="header">
-		<div id="logo">		<!-- inserting the logo here -->
+		<div id="logo">  <!-- adding logo -->
 	
 			<h1><a href="home.php"><img src="images/Reality_Solutions.png" height="150" width="200"/> </a></h1>
 		
-		</div> <!-- logo inserted-->
+		</div>
 		<div id="slogan">
 		<?php
 			
@@ -42,7 +42,7 @@ else
 	<div id="menu">
 		<ul>
 			<li class="first current_page_item"><a href="index.php">Home</a></li>
-			<li><a href="plots.php">Plots</a></li>
+			<li><a href="view_plots.php">Plots</a></li>
 			<li><a href="apartments.php">Apartments</a></li>
 			<li><a href="appointments.php">Appointments</a></li>
 			<li><a href="sales.php">Sales</a></li>
@@ -60,87 +60,76 @@ else
 		 <h2>Welcome to  Reality Solutions</h2> 
 			
 	 		
-				<p> This is <strong>Big Business</strong>, a free and fully standards-compliant CSS website </p>
+				<p align="justify">
+				 
+The real estate industry has had some interesting ups and down over the past decade - NAR (National Association of Realtors) membership hit its all-time high back in 2006 with 1,357,000 realtors before dropping dramatically with the housing financial crisis. However, since its rock bottom in 2012 (with 999,000 members), it has been steadily increasing, and with nearly 1,100,000 members in 2014, the competition among realtors is heating up.</p>
+ 
+<p align="justify">The competition is fierce, and these days you will need expert online and offline marketing skills to set yourself apart from the pack.
+marketing for real estate</p>
+	 
 			</div>
 			<div class="box" id="content-box1">
 				<h3>New Appartments</h3>
 				<ul class="section-list">
 					<li class="first">
 						<img class="pic alignleft" src="images/apt1.jpg" width="70" height="70" alt="" />
-						<span> Apartment 1</span>
+						<span>New apartment with 3 bedroom and 1 bathroom apartment.</span>
 					</li>
-					<li>
-						<img class="pic alignleft" src="images/apt2.jpg" width="70" height="70" alt="" />
-						<span>Apartment 2</span>
-					</li>
-					<li class="last">
-						<img class="pic alignleft" src="images/pic02.jpg" width="70" height="70" alt="" />
-						<span>Apartment 3.</span>
-					</li>
+					 
 				</ul>
 			</div>
 			<div class="box" id="content-box2">
 				<h3>Our new Ventures</h3>
 				<p>
-					Comming soon 
+					New ventures and all new apartments are coming soon.
 				</p>
-				<ul class="list">
-					<li class="first"><a href="#">New one coming soon 1</a></li>
-					<li><a href="#">New one coming soon 2</a></li>
-					<li><a href="#">New one coming soon 3</a></li>
-					<li><a href="#">New one coming soon 4</a></li>
-					<li class="last"><a href="#">New one coming soon 5</a></li>
-				</ul>
+				 
 			</div>
 			<br class="clearfix" />
 		</div>
 		<div id="sidebar">
 			<div class="box">
-				<h3>Plots for Sale</h3>
+					<h3>Plots for Sale</h3>
 				<ul class="list">
-					<li class="first"><a href="#">Plot sale1</a></li>
-					<li><a href="#">plot sale 2</a></li>
-					<li><a href="#">plot sale 3</a></li>
-					<li><a href="#">plot sale 4</a></li>
-					<li class="last"><a href="#">plot sale 5</a></li>
+				
+				<!-- reading latest 3 plots from plots table -->
+			 <?php
+			 	include("db.php");
+					  $res=mysql_query("select * from plots  ORDER BY id DESC LIMIT 3");
+					  $a=1;
+					  while($re=mysql_fetch_array($res))
+					  {
+					  
+					  ?>
+			
+					<li><a href="view_plot.php?pid=<?php echo $re['id']; ?>"> 
+                    <img src="images/plots/<?php echo $re['plot_img']; ?>" height="50" width="50">
+                    </a>  <?php echo $re['plot_title']; ?></li>
+			
+				<?php
+	}
+	
+?>	
+					
 				</ul>
 			</div>
 			<div class="box">
-				<h3>Commercial Buildings </h3>
-				<div class="date-list">
-					<ul class="list date-list">
-						<li class="first"><span class="date">2/08</span> <a href="#">Commercial Building 1</a></li>
-						<li><span class="date">2/05</span> <a href="#">Commercial Building 2</a></li>
-						<li><span class="date">2/01</span> <a href="#">Commercial Building 3</a></li>
-						<li class="last"><span class="date">1/31</span> <a href="#">Commercial Building 4</a></li>
-					</ul>
-				</div>
+			 
 			</div>
 		</div>
 		<br class="clearfix" />
-	</div>
-	<div id="page-bottom">
-		<div id="page-bottom-content">
-			<h3>Offering the complete 
-picture of your new home </h3>
-			<p>
-				New openings every other week !! and Open house ever week 
-			</p>
-		</div>
-		<div id="page-bottom-sidebar">
-			<h3>HOME BUYERS & SELLERS</h3>
-			<ul class="list">
-				<li class="first"><a href="#">1</a></li>
-				<li><a href="#">2 </a></li>
-				<li class="last"><a href="#">2 </a></li>
-			</ul>
-		</div>
-		<div id="footer">
+		<br/><br/><br/><br/><br/><br/>
+	</div>  
+    
+<!-- footer bigin -->	
+	
+  <div id="footer">
      &copy; Reality Solutions. All rights reserved. 
      
-		<br class="clearfix" />
-	</div>
+    <br class="clearfix" />
+     </div>  
+    <!-- footer end -->
 </div>
-
 </body>
+<!--Close Body tag-->
 </html>
