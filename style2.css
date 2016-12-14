@@ -1,5 +1,4 @@
-
-
+ 
 * {
 	margin: 0;
 	padding: 0;
@@ -376,7 +375,7 @@ li a.active {
 	margin: 0 0 0 690px;
 }
 
- 
+
 #sidebar {
 	width: 200px;
 	padding: 0;
@@ -424,14 +423,3 @@ table th {
  // padding: 5px;
   	color: #FFFFFF;
 }	
-
-#ptitle  {
- background-color : #209D9D ;
-  	color: #FFFFFF;
-	 font-size: .9 em;
-}
-
-#err
-{
-	color: #FF0000;
-}

@@ -2,23 +2,20 @@
 //Session starts 
 
  session_start();
- /*
+
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }  */
+ }  
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-    <html xmlns="http://www.w3.org/1999/xhtml">
 <!-- Open the header tag -->
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Admin | Edit User</title>
+        <title> Edit User Page</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery.js"></script>
@@ -29,6 +26,29 @@ else
             }
 
         </style>
+             <script>
+             function chkpwds() {
+                            var p = document.getElementById("passwd").value;
+                            var cp = document.getElementById("cpasswd").value;
+
+                          
+                               if (p != cp) {
+							 
+								document.getElementById('err').innerText =  "Please check Password and Confirm Passwords";
+  
+							   //  alert( "Please check Password and Confirm Passwords");
+                 document.getElementById("passwd").value = "";
+                                document.getElementById("cpasswd").value = "";
+                                document.getElementById("passwd").focus();
+								
+                 return false;
+              }
+             return true;
+                        }
+          
+
+                    </script>
+        
     </head>
 <!-- Close of header tag-->
 	<!-- Open the body tag -->
@@ -69,7 +89,7 @@ else
             </div>
 
             <div id="page">
-                <div id="content">
+             
 
                     <p>
                         Enter Employee Id :
@@ -134,44 +154,28 @@ else
                         });
 
                     </script>
-                    <script>
-                        function chkpwds() {
-                            var p = document.getElementById("passwd").value();
-                            var cp = document.getElementById("cpasswd").value();
-
-                            alert(p + " " + cp);
-                            if (p != cp) {
-
-                                alert("Please Check The PassWords!");
-                                document.getElementById("passwd").value = "";
-                                document.getElementById("cpasswd").value = "";
-                                document.getElementById("passwd").value.focus();
-                                return (false);
-                            }
-
-                        }
-
-                    </script>
+               
 
 
 
                     <br />
                     <br />
                     <div id="d1">
+					<p id="err">   </p>
 					<!-- edit user form appears when you give employee id -->
                         <h1>Edit User </h1>
                         <br />
-                        <form id="form1" method="post" action="update.php" onsubmit="chkpwds()">
+                        <form id="form1" method="post" action="update.php" onSubmit="return chkpwds();"  >
                             <input type="hidden" name="empid" id="empid" />
                             <table width="662">
 
                                 <tr>
-                                <td>FirstName</td>
+                                <td>First Name</td>
                                     <td>
                                         <input type="text" name="firstname" id="firstname" />
                                     </td>
                                     <td>&nbsp;</td>
-                                    <td>UserName</td>
+                                    <td>User Name</td>
                                     <td>
                                         <label>
                                             <input type="text" name="username" id="username" />
@@ -180,7 +184,7 @@ else
                                 </tr>
                                 <tr>
 
-                                    <td>LastName</td>
+                                    <td>Last Name</td>
                                     <td>
                                         <input type="text" name="lastname" id="lastname" />
                                     </td>
@@ -188,10 +192,19 @@ else
                                     <td>Password </td>
                                     <td>
                                         <label>
-                                            <input type="password" name="passwd" id="casswd" />
+                                            <input type="password" name="passwd" id="passwd" />
                                         </label>
                                     </td>
                                 </tr>
+                                   <tr>
+                                    <td>  </td> <td>  </td><td>  </td>
+                                <td>Confirm Password </td>
+                                    <td>
+                                        <label>
+                                            <input type="password" name="cpasswd" id="cpasswd" onBlur="return chkpwds();"/>
+                                        </label>
+                                    </td>   </tr>
+                                    
                                 <tr>
                                     <td>Email </td>
                                     <td>
@@ -200,7 +213,7 @@ else
                                     <td>&nbsp;</td>
                                     <td>DOB</td>
                                     <td>
-                                        <input type="text" name="dob" id="dob" />
+                                        <input type="date" name="dob" id="dob" />
                                     </td>
                                 </tr>
                                 <tr>
@@ -224,8 +237,8 @@ else
                                     <td>Marital status</td>
                                     <td>
                                         <select name="maritalstatus" id="maritalstatus">
-                                            <option>single</option>
-                                            <option>married</option>
+                                            <option value="single">Single</option>
+                                            <option value="married">Married</option>
                                         </select>
                                     </td>
                                     <td>&nbsp;</td>
@@ -234,7 +247,7 @@ else
                                     </td>
                                     <td>
                                         <label>
-                                            <input type="submit" name="save" value="Save" onclick="return chkpwds()" />
+                                            <input type="submit" name="save" id = "submit" value="Save"  />
                                             <input type="reset" name="cancel" value="Cancel" />
                                         </label>
                                     </td>
@@ -251,20 +264,24 @@ else
                         </form>
                         <br />
                     </div>
-                </div>
+          
 
                 <br class="clearfix" />
             </div>
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>
             <!-- footer end -->
         </div>
         </div>
+
+
+
+
 
     </body>
 <!--Close of body tag -->

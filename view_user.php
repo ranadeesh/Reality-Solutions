@@ -10,9 +10,9 @@ else
  header("Location:index.php");
  }  */
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
 
     <head>
         <meta name="description" content="" />
@@ -57,7 +57,7 @@ else
 			<li><a href="edituser.php">Edit User</a></li>
 			<li><a href="delete_user.php">Delete User</a></li>
 <li class="first current_page_item"><a href="view_user.php">View User</a></li>
-		 		<li><a href="view_complaints.php">Notifications</a></li>
+  <li><a href="view_complaints.php">Notifications</a></li>
 			 
 
 
@@ -107,7 +107,7 @@ else
                                             //appending row in table body
                                             
                                             
-                                                var rows1 = "<tr>" + "<td>EmpId :</td> <td>" + row['emp_id'] + "</td></tr>" + " <td>firstname :</td><td>" + row['firstname'] + "</td></tr>" + " <td>lastname :</td><td>" + row['lastname'] + "</td></tr>" + " <td>password :</td><td>" + row['password'] + "</td></tr>" + " <td>email :</td><td>" + row['email'] + "</td></tr>" + " <td>address : </td><td>" + row['address'] + "</td></tr>" + " <td>gender :</td><td>" + row['gender'] + "</td></tr>" + " <td>maritalstatus :</td><td>" + row['maritalstatus'] + "</td></tr>"
+                                                var rows1 = "<tr>" + "<td>EmpId :</td> <td>" + row['emp_id'] + "</td></tr>" + " <td>FirstName :</td><td>" + row['firstname'] + "</td></tr>" + " <td>LastName :</td><td>" + row['lastname'] + "</td></tr>" + " <td>Password :</td><td>" + row['password'] + "</td></tr>" + " <td>Email :</td><td>" + row['email'] + "</td></tr>" + " <td>Address : </td><td>" + row['address'] + "</td></tr>" + " <td>Gender :</td><td>" + row['gender'] + "</td></tr>" + " <td>MaritalStatus :</td><td>" + row['maritalstatus'] + "</td></tr>"
 
                                                 $('#tblUsers tbody').append(rows1);
 
@@ -155,7 +155,7 @@ else
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>

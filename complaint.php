@@ -2,23 +2,23 @@
  
 //session start  
  session_start();
- /*
-  if(isset($_SESSION['user'])){
+ 
+ if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }  */
+ }  
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
 
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Bigbusiness by TEMPLATED</title>
+        <title>User Complaints page</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery.js"></script>
@@ -44,21 +44,24 @@ else
                         <?php }   ?>
                 </div>
             </div>
+           <!-- Navigation Menu --> 
             <div id="menu">
                 <ul>
-                    <li><a href="view_plots.php">Plots</a></li>
-                    <li><a href="#">Apartments</a></li>
-                    <li><a href="#">Appointments</a></li>
-                    <li><a href="#">Sales</a></li>
-                    <li><a href="#">Reports</a></li>
- <li class="current_page_item"><a href="complaint.php">Complaints</a></li>
+           	<li><a href="home.php">Home</a></li>
+			<li><a href="view_plots.php">Plots</a></li>
+			<li><a href="apartments.php">Apartments</a></li>
+			<li><a href="appointments.php">Appointments</a></li>
+			<li><a href="sales.php">Sales</a></li>
+			<li><a href="reports.php">Reports</a></li>
+		 
+                    <li  class="first current_page_item"><a href="complaint.php">Complaints</a></li>
 
                 </ul>
                 <br class="clearfix" />
             </div>
 
             <div id="page">
-                <div id="content">
+            
 
 
                     <div id="d1">
@@ -106,10 +109,10 @@ else
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="39%">subject :</td>
-                                        <td width="61%">
+                                        <td width="14%">Subject :</td>
+                                        <td width="86%">
                                             <input type="text" name="subject" value="" />
-                                        </td>
+                                      </td>
                                     </tr>
                                   
                                     
@@ -125,7 +128,7 @@ else
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>
-                                            <input type="button" onclick="history.go(-1);" value="Go Back" />
+                                            <input type="button" onClick="history.go(-1);" value="Go Back" />
                                             <input type="submit" name="save" value="send" />
                                             <input type="reset" name="cancel" value="cancel" />
                                         </td>
@@ -138,7 +141,7 @@ else
 
 
 
-                    </div>
+                   
                 </div>
 
                 <br class="clearfix" />

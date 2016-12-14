@@ -1,9 +1,9 @@
-﻿-- phpMyAdmin SQL Dump
+-- phpMyAdmin SQL Dump
 -- version 4.1.12
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 24, 2016 at 06:57 AM
+-- Generation Time: Dec 14, 2016 at 01:47 PM
 -- Server version: 5.6.16
 -- PHP Version: 5.5.11
 
@@ -27,35 +27,51 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `apartments` (
-  `apartments_type` varchar(40) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `apt_type` varchar(40) NOT NULL,
+  `apt_title` varchar(50) NOT NULL,
   `address` varchar(100) NOT NULL,
   `monthly_rent` varchar(40) NOT NULL,
   `lease_availability` varchar(5) NOT NULL,
-  `forsale` varchar(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `forsale` varchar(3) NOT NULL,
+  `plot_type` varchar(50) NOT NULL,
+  `plot_no` int(11) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `contact` varchar(11) NOT NULL,
+  `apt_no` int(11) NOT NULL,
+  `apt_img` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `apartments`
---
-
-INSERT INTO `apartments` (`apartments_type`, `address`, `monthly_rent`, `lease_availability`, `forsale`) VALUES
-('single bedroom flat', '44 eleborn place western ave Albany. NY-', 'n', 'y', 'n');
-
--- --------------------------------------------------------
+ 
 
 --
 -- Table structure for table `appointments`
 --
 
 CREATE TABLE IF NOT EXISTS `appointments` (
-  `Date` varchar(12) NOT NULL,
-  `with` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` varchar(15) NOT NULL,
   `time` varchar(40) NOT NULL,
+  `withwhom` varchar(30) NOT NULL,
   `place` varchar(30) NOT NULL,
-  `contactinfo` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contactinfo` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
--- --------------------------------------------------------
+ 
+-- Table structure for table `complaints`
+--
+
+CREATE TABLE IF NOT EXISTS `complaints` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` varchar(50) NOT NULL,
+  `description` varchar(100) NOT NULL,
+  `date_of_submited` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+ 
 
 --
 -- Table structure for table `orders`
@@ -93,18 +109,9 @@ CREATE TABLE IF NOT EXISTS `plots` (
   `plot_img` varchar(150) NOT NULL,
   `contact` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
---
--- Dumping data for table `plots`
---
-
-INSERT INTO `plots` (`id`, `plot_no`, `plot_type`, `plot_title`, `description`, `address`, `monthly_rent`, `lease_availability`, `forsale`, `plot_img`, `contact`) VALUES
-(3, '43', 'commercial', 'Capitol Hill Restoration Society', 'Neighboring the United States Congress and the Supreme Court, the historic district is where monumental, white-stone Washington intersects with a quir', 'CA', '1000', 'no', 'no', 'plot2.jpg', '564565456'),
-(6, '43', 'residential', 'SunSentinel', 'While the ever-growing boundaries of Capitol Hill are disputed, the historic district is clearly defined. As designated by the District of Columbia’s ', 'LA', '1300', 'no', 'no', 'plot3.jpg', '456534554'),
-(7, '444', 'Residencial', 'Capitol Hill-3', '', 'Alabama', '456', 'Yes', 'kjh', '44433plot1.jpg', '4567788543'),
-(10, '33', 'Commercial', 'Capitol Hill-2', '', 'Alabama', '475', 'Yes', 'nnn', '3376plot3.jpg', '4567788543'),
-(11, '76', 'Commercial', 'Capitol Hill-1', 'gggggggggg', 'Alabama', '421', 'Yes', 'Yes', '7676plot3.jpg', '4567788543');
+ 
 
 -- --------------------------------------------------------
 
@@ -113,15 +120,21 @@ INSERT INTO `plots` (`id`, `plot_no`, `plot_type`, `plot_title`, `description`, 
 --
 
 CREATE TABLE IF NOT EXISTS `reports` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `purchase_order` varchar(15) NOT NULL,
   `solditem_type` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `sold_to` varchar(50) NOT NULL,
-  `sold_amount` varchar(50) NOT NULL,
-  `balance` varchar(50) NOT NULL,
+  `sold_date` varchar(15) NOT NULL,
+  `sold_amount` double NOT NULL,
+  `advance_amt` double NOT NULL,
+  `payment_remaining` double NOT NULL,
   `payment_done` varchar(50) NOT NULL,
-  `payment_remaining` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `session` varchar(150) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=21 ;
 
+ 
 -- --------------------------------------------------------
 
 --
@@ -129,16 +142,21 @@ CREATE TABLE IF NOT EXISTS `reports` (
 --
 
 CREATE TABLE IF NOT EXISTS `sales` (
-  `plot_id` int(11) NOT NULL,
-  `plot_no` int(11) NOT NULL,
-  `sale_value` int(11) NOT NULL,
-  `date_of_sale` varchar(15) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `property_type` varchar(30) NOT NULL,
+  `property_no` int(11) NOT NULL,
+  `sale_value` double NOT NULL,
+  `date_of_sale` varchar(50) NOT NULL,
   `sold` varchar(5) NOT NULL,
   `advance` double NOT NULL,
   `balanceamout` double NOT NULL,
   `installment` varchar(5) NOT NULL,
-  `contactinfo` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `contactinfo` varchar(50) NOT NULL,
+  `sale_order` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+
+ 
 
 -- --------------------------------------------------------
 
@@ -160,21 +178,6 @@ CREATE TABLE IF NOT EXISTS `users` (
   `DOB` varchar(12) NOT NULL,
   `address` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
 
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`id`, `emp_id`, `lastname`, `firstname`, `username`, `password`, `usertype`, `email`, `gender`, `maritalstatus`, `DOB`, `address`) VALUES
-(1, 11, 'bb', 'aa', 'admin', '12', 'admin', 'test3@gmail.com', 'male', 'single', '12/12/2001', 'kkkk'),
-(2, 22, 'bb', 'aaa', 'admin', '12', 'employee', 'test3@gmail.com', 'male', 'single', '12/12/2001', 'gggghhh'),
-(3, 33, 'bb', 'aa', 'test', '12', 'employee', 'anitasoma@gmail.com', 'male', 'single', '21-12-21', 'pppp'),
-(4, 44, 'bb', 'aa', 'test', '12', 'employee', 'anitasoma@gmail.com', 'male', 'single', '21-12-21', 'pppp'),
-(5, 55, 'bb', 'anita', 'admin', '12', 'employee', 'test3@gmail.com', 'female', 'single', '21-12-21', 'kk'),
-(6, 33, 'bb', 'aa', 'admin', '12', 'employee', 'asoma05@gmail.com', 'male', 'married', 'aa', 'aaa'),
-(7, 77, 'bb', 'aa', 'admin', '12', 'employee', 'anitasoma@gmail.com', 'female', 'single', '12/12/2001', 'jjj');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+ 

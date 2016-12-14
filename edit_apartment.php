@@ -1,7 +1,7 @@
 <?php
  //session start
  session_start();
-
+ 
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
@@ -10,14 +10,13 @@ else
  header("Location:index.php");
  }  
  ?>
-    <!DOCTYPE>
-
+<!DOCTYPE html>
     <html>
 
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title> Employee | Edit Plot Details</title>
+        <title> Edit Plot Details</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery.js"></script>
@@ -31,6 +30,9 @@ else
                     <h1><a href="home.php">   
            <img src="images/Reality_Solutions.png" height="150" width="200"/> </a></h1>
 
+
+                    </a>
+                    </h1>
                 </div>
                 <div id="slogan">
                     <?php 
@@ -56,7 +58,7 @@ else
             </div>
 
             <div id="page">
-               
+                
 
 
                     <script>
@@ -68,35 +70,37 @@ else
                     </script>
 
                     <div id="d1">
-                        <h1> Edit Plot Details</h1>
-                     <br><br>
+                        <h1> Edit Apartments Details</h1>
+                     <br><br><br><br>
                         <?php
                         include("db.php");
 				if(isset($_POST['update']))
 				{
 				 
-				 $plot_id=$_REQUEST['plot_id'];
-			     $plot_no=$_REQUEST['plot_no'];
-				$plot_type=$_REQUEST['plot_type'];
-					$plot_title=$_REQUEST['plot_title'];
-						$description=$_REQUEST['description'];
+				 $apt_id=$_REQUEST['apt_id'];
+			     $apt_no=$_REQUEST['apt_no'];
+				$apt_type=$_REQUEST['apt_type'];
+				 $contact=$_REQUEST['contact'];
 			  $address=$_REQUEST['address'];
 			   $monthly_rent=$_REQUEST['monthly_rent'];
 			   $lease_availability=$_REQUEST['lease_availability'];
-			    $forsale=$_REQUEST['forsale'];
 			   
-			 
+			//  $ftmp=$_FILES['apt_img']['tmp_name'];
+			  
+			//$apt_img_name=$_FILES['apt_img']['name'];
+			 // $apt_img_name= $apt_no.$apt_img_name;
 			  
 			  
 			  
 			  
-			  $upd=mysql_query("update plots set  plot_title = '$plot_title', description='$description', plot_type='$plot_type',address='$address',monthly_rent='$monthly_rent',lease_availability='$lease_availability', forsale= '$forsale' where id= $plot_id");
+			  $upd=mysql_query("update apartments set apt_type='$apt_type',contact='$contact',address='$address',monthly_rent='$monthly_rent',lease_availability='$lease_availability' where id= $apt_id");
 			  
 			  if($upd)
 			  {
+			 // move_uploaded_file($ftmp,"images/apartments/".$apt_img_name);
+			   echo "<script>alert('Successfully updated');</script> ";
+			   echo "<script>alert('Successfully updated'); location.href='apartments.php';</script>";  
 			  
-			   //echo "<script>alert('Successfully updated');</script> ";
-			   echo "<script>alert('Successfully updated'); location.href='view_plots.php';</script>";  
 			  }
 			  else
 			  {
@@ -110,63 +114,39 @@ else
 
           <?php
 			 
-			 // finding the record  in plots table
-				$plot_id=$_GET['pid'];
+			 // finding the record  in apartments table
+				$apt_id=$_GET['aptid'];
 			
-				$res=mysql_query("select * from plots where id='$plot_id'");
+				$res=mysql_query("select * from apartments where id='$apt_id'");
 				$re=mysql_fetch_array($res);
 				?>
 
                                 <form action="#" method="post" enctype="multipart/form-data">
-                                  <input type="hidden" name="plot_no" value="<?php echo $re['plot_no']; ?>" />
-                                  <input type="hidden" name="plot_id" value="<?php echo $plot_id; ?>" />
-								
-                                    <table width="100%" height="297" border="0" cellpadding="10" cellspacing="20">
+                                  <input type="hidden" name="apt_no" value="<?php echo $re['apt_no']; ?>" />
+                                  <input type="hidden" name="apt_id" value="<?php echo $apt_id; ?>" />
+                                    <table width="100%" height="297" border="0" cellpadding="0" cellspacing="0">
                                         <tr>
-                                         <td width="28%">										 </td>
+                                         <td width="29%"></td>
                                             <td colspan="2">
                                                 
-                                                <div><img src="images/plots/<?php echo $re['plot_img']; ?>" width="200" height="200" /></div>
-                                            </td>
-                                        </tr>
-										 <tr>
-                                         <td width="28%">Plot Title:										 </td>
-                                            <td colspan="2">
-                                                
-                                              <input type="text"  name="plot_title"  value="<?php echo $re['plot_title']; ?>" >
-                                            </td>
-                                        </tr>
-										 <tr>
-                                         <td width="28%">Description:										 </td>
-                                            <td colspan="2">
-                                                
-                                                 <textarea name="description" ><?php echo $re['description']; ?> </textarea>
+                      <div><img src="images/apartments/<?php echo $re['apt_img']; ?>" width="200" height="200" /></div>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td width="28%">Plot Type</td>
-                                            <td width="63%">
-											  <select name="plot_type" >
-											  
-											  <?php if( $re['forsale'] == "yes" ){
-												  ?>
-												   <option value="residentialplot" selected>Residential Plot</option>
-											<?php  } 
-											else{ ?>
-                                                <option value="residentialplot">Residential Plot</option>
-											<?php} ?>
-											<?php if( $re['forsale'] == "no" ){
-												  ?>
-												    <option value="commeercialplot" selected>Commercial Plot</option>
-											<?php  } 
-											else{ ?>
-                                                <option value="commeercialplot">Commercial Plot</option>
-											<?php }
-}											?>
+                                            <td width="29%">Apartment Type</td>
+                                            <td width="62%">
                                                
+												
+												<select name="apt_type" />                                      
+                                            <option value="commercialapt">Commercial Apt</option>
+                                            <option value="residencialapt">Residencial Apt</option>
                                             </select>
-                                                
                                           </td>
+                                        </tr>
+										  <tr>
+                                            <td>Contact No</td>
+                                            <td>
+                                                <input type="text" name="contact" value="<?php echo $re['contact']; ?>" > </td>
                                         </tr>
                                         <tr>
                                             <td>Address</td>
@@ -179,23 +159,25 @@ else
                                         </tr>
                                         <td>Lease Availability</td>
                                         <td>
-                                            <select name="lease_availability" />                                      
-                                            <option value="yes">Yes</option>
-                                            <option value="no">No</option>
-                                            </select>
-											 </td>
-                                        </tr>
-                                        <td>For Sale</td>
-                                        <td>
-                                            
-											     <select name="forsale" />                                      
+                                             <select name="lease_availability" />                                      
                                             <option value="yes">Yes</option>
                                             <option value="no">No</option>
                                             </select>
 											
-											 </td>
+											
                                         </tr>
-                                       
+											</td>
+                                        <td>For Sale</td>
+                                        <td>
+                                         
+											  <select name="forsale" />                                      
+                                            <option value="yes">Yes</option>
+                                            <option value="no">No</option>
+                                            </select>
+											
+											</td>
+                                        </tr>
+                                        
 
                                         <tr>
                                             <td>&nbsp;</td>
@@ -210,14 +192,13 @@ else
                                 </form>
 
 <br /><br /><br /><br /><br /><br />
- 
+  
 
                                 <br class="clearfix" />
 
 
-
-                    </div>
-                 
+ 
+                </div>
 
                 <br class="clearfix" />
             </div>

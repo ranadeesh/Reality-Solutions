@@ -9,8 +9,8 @@ else
  header("Location:index.php");  //redirecting to index page
  }
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <!DOCTYPE html>
+    <html>
 
     <head>
         <meta name="description" content="" />
@@ -26,7 +26,7 @@ else
         <div id="wrapper">
             <div id="header">
                 <div id="logo">
-                    <h1><a href="index.php">   <img src="images/Reality_Solutions.png" height="150" width="200"/> </a></h1>
+                    <h1><a href="admin_home.php">   <img src="images/Reality_Solutions.png" height="150" width="200"/> </a></h1>
 
                 </div>
                 <div id="slogan">
@@ -35,8 +35,8 @@ else
             </div>
             <div id="menu">
                 <ul>
-            <li><a href="index.php">Home</a></li>
-			<li><a href="viewusers.php">View Users</a></li>
+            <li><a href="admin_home.php">Home</a></li>
+			<li><a href="view_users.php">View Users</a></li>
 			<li><a href="adduser.php">Add User</a></li>
 			<li><a href="edituser.php">Edit User</a></li>
 			<li><a href="delete_user.php">Delete User</a></li>
@@ -56,9 +56,9 @@ else
 
                     <table width="100%" border="0" cellspacing="0" cellpadding="0" border="1">
                         <tr>
-                            <th> ID</th>
-                            <th>SUBJECT</th>
-                            <th>DESCRIPTION</th>
+                            <th>Sl No</th>
+                            <th>Subject</th>
+                            <th>Description</th>
                            
                         </tr>
                         <! connecting to database -->
@@ -67,7 +67,7 @@ else
                      
                         include("db.php");
 					  $res=mysql_query("select * from complaints");
-					
+					 $a=1;
 					  while($re=mysql_fetch_array($res))
 					  {
 					  
@@ -75,7 +75,7 @@ else
                             <tr>
                                
                                 <td>
-                                    <?php echo $re['id']; ?>
+                                    <?php echo $a; ?>
                                 </td>
                                 <td>
                                     <?php echo $re['subject']; ?>
@@ -86,7 +86,7 @@ else
                                
                             </tr>
                             <?php
-					  
+					  $a++;
 					  }
 					  ?>
                     </table>

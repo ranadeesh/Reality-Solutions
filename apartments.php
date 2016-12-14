@@ -9,14 +9,14 @@ else
  header("Location:index.php");
  }
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
 <!--Header tag opening-->
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Apartments</title>
+        <title>Employee | Apartments</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
     </head>
@@ -35,45 +35,88 @@ else
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="view_plots.php">Plots</a></li>
                     <li class="first current_page_item"><a href="apartments.php">Apartments</a></li>
                     <li><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
                     <li><a href="reports.php">Reports</a></li>
+  <li><a href="complaint.php">Complaints</a></li>
 
 
                 </ul>
                 <br class="clearfix" />
             </div>
-
+<!-- Display appartments details from  to database -->
             <div id="page">
-                <div id="content">
-                    <?php
-			
-			 
-			echo "   Apartments page ";
-			
-			?>
-                        <table border="1">
+            <br /><br /><br /> 
+                 
+        
+                        <table width="125%">
                             <tr>
-                                <th>Apartments Type</th>
-                                <th>Address </th>
-                                <th>Monthly rent</th>
-                                <th>Lease availability </th>
-                                <th>forsale</th>
-                                <th> Edit</th>
+                            <th>SNO</th>
+                                                          
+                                 <th>Apartment Number</th>
+                                 <th>Apartment Name </th>
+                                 <th>Address </th>
+                                 <th>Monthly Rent</th>
+                                 <th>Lease Availability</th>
+                                 <th>For Sale</th>
+                                 <th> </th>
                             </tr>
+                            
+                               <!-- connecting to database -->
+                        <?php
+                      
+                     
+                        include("db.php");
+					  $res=mysql_query("select * from apartments");
+					  $a=1;
+					  while($re=mysql_fetch_array($res))
+					  {
+					  
+					  ?>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                   <td>
+                                    <?php echo $a; ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $re['apt_no']; ?>
+                                </td>
+                                 <td>
+                                    <?php echo $re['apt_type']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['address']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['monthly_rent']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['lease_availability']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['forsale']; ?>
+                                </td>
+                                <td><a href="view_apartment.php?aptid=<?php echo $re['id']; ?>">View</a>
+                                    <a href="edit_apartment.php?aptid=<?php echo $re['id']; ?>">Edit</a>
+                                    <a href="delete_apartment.php?aptid=<?php echo $re['id']; ?>" onClick="return confirm('Do you want delete this apartment');">Delete</a></td>
                             </tr>
-                        </table>
-                </div>
+                            <?php
+					  $a++;
+					  }
+					  ?>
+              </table>
+                    <p>&nbsp;</p>
+
+                    <p align="left"> <a href="add_appartment.php">Add New</a></p>
+
+                    <br />
+                            
+                            
+                            
+               
 
 
                 <br class="clearfix" />
@@ -83,7 +126,7 @@ else
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>

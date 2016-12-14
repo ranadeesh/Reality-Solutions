@@ -9,12 +9,12 @@ else
  header("Location:index.php");
  }
  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>Appointments Page</title>
+<title>Employee | Appointments Page</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 </head>
@@ -29,56 +29,82 @@ else
 			<h3> <a href="logout.php">Logout</a></h3>
 		</div>
 	</div>
+	<!-- Navigation Menu -->
 	<div id="menu">
 		<ul>
-			<li><a href="index.php">Home</a></li>
+			<li><a href="home.php">Home</a></li>
 			<li><a href="view_plots.php">Plots</a></li>
 			<li><a href="apartments.php">Apartments</a></li>
 			<li class="first current_page_item"><a href="appointments.php">Appointments</a></li>
 			<li><a href="sales.php">Sales</a></li>
 			<li><a href="reports.php">Reports</a></li>
-		 
+		  <li><a href="complaint.php">Complaints</a></li>
 		 
 		</ul>
 		<br class="clearfix" />
 	</div>
 	 
 	<div id="page">
-		<div id="content">
-			<?php
-			
-			 
-			echo " Appointments page <br> ";
-			
-			?>
+		
 			<br /><br /><br /><br />
-	        <table  border="1">
+	        <table>
               <tr>
                 <th>Date</th>
-                <th>with</th>
-                <th>time</th>
-                <th>place </th>
-                <th>contact info</th>
-				<th> Edit</th>
+               
+                <th>Time</th>
+                 <th>With</th>
+                 <th>Place </th>
+                 <th>Contact Info</th>
+				 <th>  </th>
               </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-				<td>&nbsp;</td>
-              </tr>
-              <tr>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-                <td>&nbsp;</td>
-				<td>&nbsp;</td>
-              </tr>
-            </table>
-	  </div>
+              
+            
+            
+              <!-- connecting to database -->
+                        <?php
+                      
+                     
+                        include("db.php");
+					  $res=mysql_query("select * from appointments");
+					  $a=1;
+					  while($re=mysql_fetch_array($res))
+					  {
+					  
+					  ?>
+                            <tr>
+                              
+                                <td>
+                                    <?php echo $re['date']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['time']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['withwhom']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['place']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['contactinfo']; ?>
+                                </td>
+                                <td><a href="view_appointment.php?aptmtid=<?php echo $re['id']; ?>">View</a>
+                                    <a href="edit_appointment.php?aptmtid=<?php echo $re['id']; ?>">Edit</a>
+                                    <a href="delete_appointment.php?aptmtid=<?php echo $re['id']; ?>" onClick="return confirm('Do you want delete this Appointment');">Delete</a></td>
+                            </tr>
+                            <?php
+					  
+					  }
+					  ?>
+                    </table>
+                    <p>&nbsp;</p>
+
+                    <p align="left"> <a href="add_appointment.php">Add New</a></p>
+
+                    <br />
+            
+            
+ 
 		
 		
 		<br class="clearfix" />
@@ -86,7 +112,7 @@ else
 <!-- footer bigin -->	
 	
   <div id="footer">
-     &copy; Reality_Solutions. All rights reserved. 
+     &copy; Reality Solutions. All rights reserved. 
      
     <br class="clearfix" />
      </div>  

@@ -9,9 +9,9 @@ else
  header("Location:index.php");
  }
  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
@@ -26,7 +26,7 @@ else
 	 
 		<div id="logo"> 
 	
-			<h1><a href="home.php" ><img src="images/Reality_Solutions.png" height="150" width="200" /> </a></h1>
+			<h1><a href="admin_home.php" ><img src="images/Reality_Solutions.png" height="150" width="200" /> </a></h1>
 		
 		</div>
 		<div id="slogan">
@@ -69,7 +69,7 @@ these days you will need expert online and offline marketing skills to set yours
 marketing for real estate
 </p>
 
-</div>
+
 	
 			</div>
 		</div>

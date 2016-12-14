@@ -9,9 +9,9 @@ else
  header("Location:index.php");
  }
  ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html >
 <!-- header tag starts -->
 <head>
 <meta name="description" content="" />
@@ -41,12 +41,13 @@ else
 	</div>
 	<div id="menu">
 		<ul>
-			<li class="first current_page_item"><a href="index.php">Home</a></li>
+			<li class="first current_page_item"><a href="home.php">Home</a></li>
 			<li><a href="view_plots.php">Plots</a></li>
 			<li><a href="apartments.php">Apartments</a></li>
 			<li><a href="appointments.php">Appointments</a></li>
 			<li><a href="sales.php">Sales</a></li>
 			<li><a href="reports.php">Reports</a></li>
+			<li><a href="complaint.php">Complaints</a></li>
 		</ul>
 		<br class="clearfix" />
 	</div>

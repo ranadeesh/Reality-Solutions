@@ -98,10 +98,11 @@ mysql_close($conn);
                                         <input type="text" name="username" id="user" />
                                         <br /> Password:
                                         <input type="password" name="password" id="pwd" />
-                                        <br /> UserType:
+                                        <br /> 
+                                        User Type:
                                         <select name="usertype">
-            <option>admin</option>
-            <option>employee</option>
+            <option value="admin">Admin</option>
+            <option value="employee">Employee</option>
           </select>
           <br />
           <input name="submit" type="submit" id="submit" value="Submit" />
@@ -110,7 +111,7 @@ mysql_close($conn);
       </div>
        <div class="box">
         <div class="date-list"> 
-		<h4>Plosts for Sale </h4>
+		<h4>Plots for Sale </h4>
 		<img src="images/apt1.jpg" height="200" width="200"/> 
 		</div>
 		

@@ -9,9 +9,8 @@ else
  header("Location:index.php");  //redirecting to index page
  }
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
-
+    <!DOCTYPE html>
+<html>
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
@@ -36,31 +35,33 @@ else
             <div id="menu">
                 <ul>
 
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li class="first current_page_item"><a href="view_plots.php">Plots</a></li>
                     <li><a href="apartments.php">Apartments</a></li>
                     <li><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
                     <li><a href="reports.php">Reports</a></li>
+  <li><a href="complaint.php">Complaints</a></li>
 
                 </ul>
                 <br class="clearfix" />
             </div>
 
             <div id="page">
-                <div id="content">
+              
+ 
+                  
 
-                    <br />
-                    <br />
-
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" border="1">
+                    <table width="100%" >
                         <tr>
-                            <th>PLOT ID</th>
-                            <th>PLOT TYPE</th>
-                            <th>ADDRESS</th>
-                            <th>MONTHLY RENT</th>
-                            <th>LEASE AVAILABILITY</th>
-                            <th>FORSALE </th>
+                            <th>Sl No</th>
+                             <th>Plot Number</th>
+                            <th>Plot Type</th>
+                            <th>Address</th>
+                            <th>Monthly Rent</th>
+                            <th>Lease Avalibility</th>
+                            <th>For Sale</th>
+                            <th>Contact Info</th>
                             <th> </th>
                         </tr>
                         <!-- connecting to database -->
@@ -69,7 +70,7 @@ else
                      
                         include("db.php");
 					  $res=mysql_query("select * from plots");
-					  $a=1;
+				    $a=1;
 					  while($re=mysql_fetch_array($res))
 					  {
 					  
@@ -77,6 +78,9 @@ else
                             <tr>
                                 <td>
                                     <?php echo $a; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['plot_no']; ?>
                                 </td>
                                 <td>
                                     <?php echo $re['plot_type']; ?>
@@ -90,25 +94,28 @@ else
                                 <td>
                                     <?php echo $re['lease_availability']; ?>
                                 </td>
+                             
                                 <td>
                                     <?php echo $re['forsale']; ?>
                                 </td>
+                                   <td>
+                                    <?php echo $re['contact']; ?>
+                                </td>
                                 <td><a href="view_plot.php?pid=<?php echo $re['id']; ?>">View</a>
                                     <a href="edit_plot.php?pid=<?php echo $re['id']; ?>">Edit</a>
-                                    <a href="delete_plot.php?pid=<?php echo $re['id']; ?>" onclick="return confirm('Do you want delete this Plot');">Delete</a></td>
+                                    <a href="delete_plot.php?pid=<?php echo $re['id']; ?>" onClick="return confirm('Do you want delete this Plot');">Delete</a></td>
                             </tr>
                             <?php
-					  $a++;
+					 $a++;
 					  }
 					  ?>
                     </table>
-                    <p>&nbsp;</p>
-
+                  
                     <p align="left"> <a href="add_plot.php">Add New</a></p>
 
-                    <br />
+                    <br />   <br />  
 
-                </div>
+               
 
 
 
@@ -118,7 +125,7 @@ else
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>

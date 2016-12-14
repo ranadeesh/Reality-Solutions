@@ -1,4 +1,4 @@
- <?php
+<?php
  //session start
  session_start();
   if(isset($_SESSION['user'])){
@@ -54,81 +54,99 @@ else
          
         
 		    <li class="first">
-        <span class="opener"><a href="vew_sale_plots.php">Sales</a></span>
+        <span class="opener">Sales<b></b></span>
         <ul>
-          <li><a href="vew_vacant_plots.php">Vacant Plots</a></li>
+          <li><a href="vew_vacant_plots.php">Vacation Plots</a></li>
           <li><a href="vew_sale_plots.php">Sold Plots</a></li>
 		  </ul></li>
-		  <li><a href="reports.php">Reports</a></li>
-			<li> <a href="complaint.php">Complaints</a></li>
+		   <li><a href="report.php">Reports</a></li>
+  <li><a href="complaint.php">Complaints</a></li>
         </ul>
     
  
-  </div>
-  <br class="clearfix" />
-
-  <br/><br/><br/><br/><br/>
-
-  <table>
-    <tr>
-    <th>SNO</th>
-      <th>PROPERTY TYPE</th>
-      <th>PROPERTY NO</th>
-      <th>SALE VALUE</th>
-      <th>SOLD </th>
-      <th>DATE OF SALE  </th>
-    
-      <th>CONTACT</th>
-   
-    </tr>
  
-                         
+            </div>
+
+            <div id="page">
+                
+
+                    <br />
+                    <br />
+
+                    <table width="80%" >
+                        <tr> 
+                             <th>PLOT NO</th>
+                            <th>APT NO</th>
+                            <th>APT TYPE</th>
+                            <th>ADDRESS</th>
+                            <th>MONTHLY RENT</th>
+                            <th>CONTACT</th>
+                          
+                            <th> </th>
+                        </tr>
                         <!-- connecting to database -->
                         <?php
                       
                      
                         include("db.php");
-					  $res=mysql_query("select * from sales");
-				    $a=1;
+					  $res=mysql_query("select * from apartments where lease_availability = 'yes'");
+					  
 					  while($re=mysql_fetch_array($res))
 					  {
 					  
 					  ?>
-                            <tr>
-                                <td>
-                                    <?php echo $a; ?>
+                           <tr>
+                             <td>
+                                    <?php echo $re['plot_no']; ?>
+                                </td>
+                                 <td>
+                                    <?php echo $re['apt_no']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $re['property_type']; ?>
+                                    <?php echo $re['apt_type']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $re['property_no']; ?>
+                                    <?php echo $re['address']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $re['sale_value']; ?>
+                                    <?php echo $re['monthly_rent']; ?>
                                 </td>
                                 <td>
-                                    <?php echo $re['sold']; ?>
+                                    <?php echo $re['contact']; ?>
                                 </td>
-                                <td>
-                                    <?php echo $re['date_of_sale']; ?>
-                                </td>
-                                  <td>
-                                    <?php echo $re['contactinfo']; ?>
-                                </td>
-                                
+                               
+                                <td><a href="view_apartment.php?aptid=<?php echo $re['id']; ?>"><img src="images/apartments/<?php echo $re['apt_img']; ?>" width="50" height="50" /></a>
+                                  </td>
                             </tr>
                             <?php
-					 $a++;
+				 
 					  }
 					  ?>
                     </table>
-					
-					<br/><br/><br/><br/>
+                    <p>&nbsp;</p>
 
-  <div id="footer"> &copy; Reality Solutions. All rights reserved. <br class="clearfix" />
-  </div>
-</div>
-</div>
-</body>
-</html>
+                   
+
+                    <br />
+
+            
+
+
+
+
+                <br class="clearfix" />
+            </div>
+            <!-- footer bigin -->
+
+            <div id="footer">
+                &copy; Reality Solutions. All rights reserved.
+
+                <br class="clearfix" />
+            </div>
+            <!-- footer end -->
+        </div>
+        </div>
+
+    </body>
+
+    </html>

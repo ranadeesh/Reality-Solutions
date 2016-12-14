@@ -1,8 +1,8 @@
  	<?php
-			include("db.php");
-			 
-		 
-			
+
+
+include("db.php");	 
+		
 if(isset($_POST['save']))
 {
  $empid=$_POST['empid'];
@@ -28,7 +28,7 @@ $query=	"update  users  set firstname =  '$firstname', lastname = '$lastname', u
 
      mysql_query($query);
     
- echo "<br> success";
+ //echo "<br> success";
   echo "<script>alert('success'); location.href='edituser.php';</script>";
 	 		}
 			

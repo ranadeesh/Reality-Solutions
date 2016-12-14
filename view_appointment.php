@@ -2,14 +2,14 @@
  // session start
  
  session_start();
-
+ 
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }   
+ }    
  ?>
     <!DOCTYPE html>
 
@@ -18,7 +18,7 @@ else
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Employee | View Plot</title>
+        <title>Employee | View Appointment</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery.js"></script>
@@ -45,10 +45,10 @@ else
             <div id="menu">
                 <ul>
                     <li><a href="home.php">Home</a></li>
-					<!--Highlighting the current tab-->
-                    <li class="current_page_item"><a href="view_plots.php">Plots</a></li>
+                    <li><a href="view_plots.php">Plots</a></li>
+
                     <li><a href="apartments.php">Apartments</a></li>
-                    <li><a href="appointments.php">Appointments</a></li>
+                    <li  class="current_page_item"><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
                     <li><a href="reports.php">Reports</a></li>
                     <li><a href="complaint.php">Complaints</a></li>
@@ -59,7 +59,7 @@ else
             </div>
 
             <div id="page">
-               
+                <div id="content">
 
 
                     <script>
@@ -71,63 +71,52 @@ else
                     </script>
 
                     <div id="d1">
-                        <h1> Plot Details</h1>
+                        <h1> Appointment Details</h1>
                         <br />
 
                         <?php
 			 
-				$plot_id=$_GET['pid'];
+				$aptmt_id=$_GET['aptmtid'];
 				include("db.php");
-				$res=mysql_query("select * from plots where id='$plot_id'");
+				$res=mysql_query("select * from appointments where id='$aptmt_id'");
 				$re=mysql_fetch_array($res);
 				?>
 
-                            <form action="buy_now.php" method="post">
-                                <input type="hidden" name="pid" id="pid" value="<?php echo $re['id']; ?>" />
-                                 <input type="hidden" name="property_no" id="plot_no" value="<?php echo $re['plot_no']; ?>" />
-                                <input type="hidden" name="total" id="total" value="<?php echo $re['monthly_rent']; ?>" />
-                                <input type="hidden" name="property_type" id="property_type" value="<?php echo $re['plot_type']; ?>" />
+                            <form action="reset" method="post">
+                                <input type="hidden" name="aptmtid" id="aptmtid" value="<?php echo $re['id']; ?>" />
+                              
                                 <table width="100%" height="297" border="0" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td width="35%"><p id="ptitle"><?php echo $re['plot_title']; ?></p>
-                                            <p align='justify'> <b>Description:</b>
-                                                <?php echo $re['description']; ?>
-                                                    <br>
-                                                    <b>Contact:</b>
-                                                    <?php echo $re['contact']; ?>
-                                            </p>
-                                      </td>
-                                        <td colspan="2">
-                                            <div><img src="images/plots/<?php echo $re['plot_img']; ?>" width="200" height="200" /></div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td width="35%">PlotyType</td>
-                                        <td width="65%">
-                                            <?php echo $re['plot_type']; ?>                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>Address</td>
+                                         <td>Date</td><td width="50%"> <?php echo $re['date']; ?></td>  </tr>
+                                         <tr>
+                                             <td>Time</td>
+                                              <td>  <?php echo $re['time']; ?></td>
+                                                    </tr>
+                                               <tr>
+                                        <td>With</td>
                                         <td>
-                                            <?php echo $re['address']; ?>
+                                            <?php echo $re['withwhom']; ?>
+                                        </td>
+                                    </tr>  
+                                     
+                                    <tr>
+                                        <td>Place</td>
+                                        <td>
+                                            <?php echo $re['place']; ?>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td width="35%">Monthly Rent</td>
-                                        <td width="65%">
-                                            <?php echo $re['monthly_rent']; ?>                                        </td>
+                                        <td width="39%">Contact Info</td>
+                                        <td width="61%">
+                                            <?php echo $re['contactinfo']; ?>
+                                        </td>
                                     </tr>
-                                    <tr>
-                                        <td width="35%">Lease Availability</td>
-                                        <td width="65%">
-                                            <?php echo $re['lease_availability']; ?>                                        </td>
-                                    </tr>
-
+                                    
                                     <tr>
                                         <td>&nbsp;</td>
                                         <td>
-                                            <input type="button" onClick="history.go(-1);" value="Go Back" />
-                                            <input type="submit" name="submit" value="Buy Now" />
+                                            <input type="button" onclick="history.go(-1);" value="Go Back" />
+                                           
                                         </td>
                                     </tr>
                                     <tr>
@@ -147,7 +136,7 @@ else
                             <br class="clearfix" />
 
                     </div>
-              
+                </div>
 
                 <br class="clearfix" />
             </div>

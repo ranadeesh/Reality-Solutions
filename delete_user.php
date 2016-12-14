@@ -1,18 +1,17 @@
 <?php
  //session start
  session_start();
- /*
+ 
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }  */
+ }  
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <!DOCTYPE>
+    <html>
 
     <head>
         <meta name="description" content="" />
@@ -105,7 +104,7 @@ else
                                             //appending row in table body
                                             
                                             
-                                                var rows1 = "<tr>" + "<td>EmpId :</td> <td>" + row['emp_id'] + "</td></tr>" + " <td>firstname :</td><td>" + row['firstname'] + "</td></tr>" + " <td>lastname :</td><td>" + row['lastname'] + "</td></tr>" + " <td>password :</td><td>" + row['password'] + "</td></tr>" + " <td>email :</td><td>" + row['email'] + "</td></tr>" + " <td>address : </td><td>" + row['address'] + "</td></tr>" + " <td>gender :</td><td>" + row['gender'] + "</td></tr>" + " <td>maritalstatus :</td><td>" + row['maritalstatus'] + "</td></tr>"
+                                                var rows1 = "<tr>" + "<td>EmpId :</td> <td>" + row['emp_id'] + "</td></tr>" + " <td>FirstName :</td><td>" + row['firstname'] + "</td></tr>" + " <td>LastName :</td><td>" + row['lastname'] + "</td></tr>" + " <td>Password :</td><td>" + row['password'] + "</td></tr>" + " <td>Email :</td><td>" + row['email'] + "</td></tr>" + " <td>Address : </td><td>" + row['address'] + "</td></tr>" + " <td>Gender :</td><td>" + row['gender'] + "</td></tr>" + " <td>Marital Status :</td><td>" + row['maritalstatus'] + "</td></tr>"
 
                                                 $('#tblUsers tbody').append(rows1);
 
@@ -143,7 +142,7 @@ else
 
                             </tbody>
                         </table>
-<form name="delform" action="delete_user2.php" method="get" onsubmit="return delete_row();">
+<form name="delform" action="delete_user2.php" method="get" onSubmit="return delete_row();">
 <input type="hidden" name="empid" id="empid" />
 <input type="submit" name="submitdel" value="Delete" disabled>
 </form>
@@ -168,7 +167,7 @@ else
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>

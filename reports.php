@@ -9,9 +9,9 @@ else
  header("Location:index.php");
  }
  ?>
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+    <!DOCTYPE html>
 
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <html>
 
     <head>
         <meta name="description" content="" />
@@ -34,63 +34,74 @@ else
             </div>
             <div id="menu">
                 <ul>
-                    <li><a href="index.php">Home</a></li>
+                    <li><a href="home.php">Home</a></li>
                     <li><a href="view_plots.php">Plots</a></li>
                     <li><a href="apartments.php">Apartments</a></li>
                     <li><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
-                    <li class="first current_page_item"><a href="reports.php">Reports</a></li>
-
+					<li class="first current_page_item"><a href="reports.php">Reports</a></li>
+					<li> <a href="complaint.php"> Complaints </a> </li>
 
                 </ul>
                 <br class="clearfix" />
             </div>
 
             <div id="page">
-                <div id="content">
-                    <?php
-			
-			 
-			echo " Reports page <br> ";
-			
-			?>
                         <br />
                         <br />
-                        <br />
-                        <br />
-                        <table border="1" width="80%">
+                        <table>
                             <tr>
-                                <th>SaleI_tem_type </th>
-                                <th>plot/appartment</th>
-                                <th>address</th>
-                                <th>sold_to</th>
-                                <th> sold_amount</th>
-                                <th>balance</th>
-                                <th> payment_dond</th>
-                                <th> payment_remaining</th>
+                                <th>Sl No </th>
+                                <th>Plot/Appartment</th>
+                                <th>Address</th>
+                                <th>Sold To</th>
+                                <th>Sold Amount</th>
+                                <th>Sold Date</th>
+                                <th>Payment Done</th>
+                                 
                             </tr>
+                               <!-- connecting to database -->
+                        <?php
+                      
+                     
+                        include("db.php");
+					  $res=mysql_query("select * from reports");
+				    $a=1;
+					  while($re=mysql_fetch_array($res))
+					  {
+					  
+					  ?>
                             <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
+                                <td>
+                                    <?php echo $a; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['solditem_type']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['address']; ?>
+                                </td>
+
+                                <td>
+                                    <?php echo $re['sold_to']; ?>
+                                </td>
+                                                                 <td>
+                                    <?php echo $re['sold_amount']; ?>
+                                </td>
+                                 <td>
+                                    <?php echo $re['sold_date']; ?>
+                                </td>
+                                <td>
+                                    <?php echo $re['payment_done']; ?>
+                                </td>
+                                                              
                             </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                                <td>&nbsp;</td>
-                            </tr>
-                        </table>
-                </div>
+                            <?php
+					 $a++;
+					  }
+					  ?>
+                    </table>
+               
 
 
                 <br class="clearfix" />
@@ -98,7 +109,7 @@ else
             <!-- footer bigin -->
 
             <div id="footer">
-                &copy; Reality_Solutions. All rights reserved.
+                &copy; Reality Solutions. All rights reserved.
 
                 <br class="clearfix" />
             </div>
