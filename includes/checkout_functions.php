@@ -14,7 +14,7 @@ class checkout_functions{
 
 		$fetch = new Fetch_functions();
 
-		$updateOrderstatus = $fetch->query("update orders set order_status='$status' where purchase_order='$orderID'");
+		$updateOrderstatus = $fetch->query("update reports set payment_done='$status' where purchase_order='$orderID'");
 
 		if($updateOrderstatus){
 
