@@ -1,9 +1,9 @@
 <?php
 
 define("DB_HOST", "localhost");
-define("DB_USER", "root");
+define("DB_USER", "kusuma");
 define("DB_PASSWORD", "");
-define("DB_DATABASE", "realdb");
+define("DB_DATABASE", "kusuma");
 //connet database
 class DB_Class
 {

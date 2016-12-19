@@ -9,7 +9,7 @@ class Fetch_functions
 
 {
 
-	public function __construct() 
+	function __construct() 
 
 	{
 
@@ -17,7 +17,7 @@ class Fetch_functions
 
 	}
 
-	public function query($sql)
+	function query($sql)
 
 	{
 
@@ -25,17 +25,17 @@ class Fetch_functions
 
 	}
 
-	public function num_rows($sql)
+	function num_rows($sql)
 
 	{
 
 		return mysql_num_rows($sql);
 
 	}
-	public function insertId(){
+	function insertId(){
 		return mysql_insert_id();
 	}
-	public function result($sql)
+	function result($sql)
 
 	{
 
@@ -43,7 +43,7 @@ class Fetch_functions
 
 	}
 
-	public function assoc($sql)
+	function assoc($sql)
 
 	{
 
@@ -51,7 +51,7 @@ class Fetch_functions
 
 	}
 
-	public function row($sql)
+	function row($sql)
 
 	{
 
