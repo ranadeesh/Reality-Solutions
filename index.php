@@ -1,10 +1,10 @@
 <?php
- //session start
- session_start();
- ?>
+ob_start();
+session_start();
+?>
 
-    <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-    <html xmlns="http://www.w3.org/1999/xhtml">
+    <!DOCTYPE html PUBLIC>
+<html>
 <!-- head tag starts-->
     <head>
         <meta name="description" content="" />
@@ -60,21 +60,22 @@ if ($conn) {
 
 $query="select * from users where username='$username' and password='$password' and usertype='$usertype' " ;
 
-//echo $query;
 
 $res=mysql_query($query,$conn);
+$re=mysql_fetch_array($res);
+
 
 $num_rows = mysql_num_rows($res);
 
 if ($num_rows > 0) {
  
 $_SESSION["user"]=$username;
+$_SESSION["emp_id"]= $re['emp_id'];
  
 if($usertype == 'admin')
 
 header("Location:admin_home.php");
 else
-
 header("Location:home.php");  
 }
 else

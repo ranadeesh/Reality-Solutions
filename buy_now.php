@@ -1,12 +1,16 @@
- <?php
+<?php
  //session starts
- session_start();
+
+ob_start();
+session_start();
+?>
+<?php
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
- header("Location:index.php");
+ echo '<script> location.href="index.php"</script>';
  }
  ?>
 <!DOCTYPE html>
@@ -15,12 +19,13 @@ else
 <head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />
-<title>buy plot</title>
+<title>Buy Property</title>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <link rel="stylesheet" type="text/css" href="style.css" />
 
 <script>
 // calculating balance amount in a form
+
 function bal_due(){
 
   var total = document.getElementById("totalamt").value;
@@ -162,26 +167,26 @@ header("Location:paypal.php");
   </tr>
   <?php if(!isset($msg)) {  ?>
    <form action="#" method="post">
-   <input name="status" type="hidden" size="40" value="pending">
+   <input name="status" type="hidden" size="40" value="Pending">
   <input name="property_type" type="hidden" size="40" value= <?php echo $_POST['property_type']; ?> >
   <input name="property_no" type="hidden" size="40" value= <?php echo $_POST['property_no']; ?> >
   
   <tr>
     <td width="43%">Name</td>
     <td width="57%"><label>
-      <input name="o_name" type="text" size="40" />
+      <input name="o_name" type="text" size="40" required />
     </label></td>
   </tr>
     <tr>
     <td valign="top">Contact</td>
     <td><label>
-      <input name="contact" type="text" size="40" />
+      <input name="contact" type="text" size="40" required />
     </label></td>
   </tr>
   <tr>
     <td valign="top">Address</td>
     <td><label>
-      <textarea cols="35" name="address"></textarea>
+      <textarea cols="35" name="address" required></textarea>
     </label></td>
   </tr>
   <tr>

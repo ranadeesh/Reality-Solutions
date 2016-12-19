@@ -103,11 +103,9 @@ else
                                     <tr>
                                         <td width="39%">Appartment Type</td>
                                         <td width="61%">
+  					 <?php echo $re['apt_type']; ?>
                                             
-											<select name="apt_type" />                                      
-                                            <option value="commercialapt">Commercial Apt</option>
-                                            <option value="residencialapt">Residencial Apt</option>
-                                            </select>
+											 
                                         </td>
                                     </tr>
                                     <tr>

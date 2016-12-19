@@ -138,8 +138,8 @@ else
                                                
 												
 												<select name="apt_type" />                                      
-                                            <option value="commercialapt">Commercial Apt</option>
-                                            <option value="residencialapt">Residencial Apt</option>
+                                            <option value="Commercial Apt">Commercial Apt</option>
+                                            <option value="Residencial Apt">Residencial Apt</option>
                                             </select>
                                           </td>
                                         </tr>

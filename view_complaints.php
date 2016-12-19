@@ -15,7 +15,7 @@ else
     <head>
         <meta name="description" content="" />
         <meta name="keywords" content="" />
-        <title>Admin | Complaints page</title>
+        <title>Admin | View Complaints Page</title>
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <link rel="stylesheet" type="text/css" href="style.css" />
         <script src="jquery.js"></script>
@@ -49,17 +49,20 @@ else
             </div>
 
             <div id="page">
-                <div id="content">
+           
 
                     <br />
                     <br />
 
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0" border="1">
+                    <table>
                         <tr>
                             <th>Sl No</th>
+							
+							<th> Employee Id </th>
+                             <th>User Name</th>
                             <th>Subject</th>
                             <th>Description</th>
-                           
+                            <th> </th>
                         </tr>
                         <! connecting to database -->
                         <?php
@@ -77,13 +80,28 @@ else
                                 <td>
                                     <?php echo $a; ?>
                                 </td>
+								<td> 
+								<?php echo $re['emp_id']; ?>
+								</td>
+                                <td>
+                                    <?php echo $re['emp_name']; ?>
+                                </td>
                                 <td>
                                     <?php echo $re['subject']; ?>
                                 </td>
                                 <td>
                                     <?php echo $re['description']; ?>
                                 </td>
-                               
+                                
+                                
+                                  <td>
+                                   <a href="view_complaint.php?cid=<?php echo $re['id']; ?>">View</a> 
+                                     <a href="delete_complaint.php?cid=<?php echo $re['id']; ?>" onClick="return confirm('Do you want delete this Complaint?');">Remove</a></td>
+                                </td>
+                                
+                                
+                                
+                             
                             </tr>
                             <?php
 					  $a++;
@@ -92,7 +110,7 @@ else
                     </table>
                    
 
-                </div>
+               
 
 
 

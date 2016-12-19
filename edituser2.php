@@ -3,9 +3,8 @@
 $usersarray = array();
 $eid= $_GET['eid'];
  if($eid != ""){
-$con=mysql_connect("localhost","root","");
- 
-mysql_select_db("realdb", $con);
+
+include("db.php");
 
 $query="select * from users where emp_id = ".$eid ;
 
@@ -17,7 +16,16 @@ $usersarray[] =  $user;
 }
 
 //we send the array as JSON object
-echo json_encode($usersarray);
+
+
+echo json_encode($usersarray),"\n";
+
+//echo  var_dump(json_encode($usersarray, true));
 
 }
+
+
+  
+
+
 ?>

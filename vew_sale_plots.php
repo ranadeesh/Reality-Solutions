@@ -55,7 +55,7 @@ else
         
 		    <li class="first">
 			
-        <span class="opener">Sales<b></b></span>
+        <span class="opener"><a href="sales.php">Sales</a></span>
         <ul>
           <li><a href="vew_vacant_plots.php">Vacation Plots</a></li>
           <li><a href="vew_sale_plots.php">Sold Plots</a></li>

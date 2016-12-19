@@ -1,13 +1,15 @@
- <?php
+<?php
  //session start
+ob_start();
  session_start();
+
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }
+ }  
  ?>
 <!DOCTYPE html>
 <html>

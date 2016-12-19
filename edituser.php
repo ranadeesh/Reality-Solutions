@@ -1,6 +1,6 @@
 <?php
-//Session starts 
-
+ //session start
+ob_start();
  session_start();
 
   if(isset($_SESSION['user'])){
@@ -11,6 +11,8 @@ else
  header("Location:index.php");
  }  
  ?>
+<!DOCTYPE html>
+<html>
 <!-- Open the header tag -->
     <head>
         <meta name="description" content="" />
@@ -120,7 +122,7 @@ else
                                         cache: false,
 
                                         success: function(result) {
-                                            //alert(result);
+                                           // alert(result);
                                             $("#d1").show(1000);
                                             var userdetails = JSON.parse(result);
                                             $("#empid").val(userdetails[0].emp_id);

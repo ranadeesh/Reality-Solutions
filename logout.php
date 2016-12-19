@@ -1,9 +1,18 @@
- <?php
+<?php
+ //session start
+ob_start();
  session_start();
+
+  if(isset($_SESSION['user'])){
+ $user = $_SESSION['user'];
+ }
+else
+ {
+ header("Location:index.php");
+ }  
  ?>
-
-
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html>
+<htmls>
 <head>
 <meta name="description" content="" />
 <meta name="keywords" content="" />

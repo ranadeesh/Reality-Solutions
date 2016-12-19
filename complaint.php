@@ -68,26 +68,29 @@ else
                         <h1> Write Us</h1>
                         <br />
 
-                        <?php
-			include("db.php");
+<?php
+
+         include("db.php");
 		 if(isset($_POST['save']))
 {
 //collecting form data
-
-
+$emp_id=$_POST['emp_id'];
+$emp_name=$_POST['emp_name'];
  $subject=$_POST['subject'];
-  $description=$_POST['description'];
+ $description=$_POST['description'];
  
      
 	//inserting  data	
  	
 		
-		$query="INSERT INTO  complaints (  subject ,  description) values('$subject','$description')";
+		$query="INSERT INTO  complaints (emp_id, emp_name, subject, description) values($emp_id,'$emp_name','$subject','$description')";
+		
     	$res=mysql_query($query);
+    	
            // echo $query ;
 			if($res)
 			{
-			echo "Successfully sent";
+			echo "Successfully Sent";
 			}
 			else
 			{
@@ -95,19 +98,24 @@ else
 			}
 		}
 		
- 
-
-
-
 			?>
-                            <form action="#" method="post" enctype="multipart/form-data">
-                                <table width="60%" height="297" border="0" cellpadding="0" cellspacing="0">
-                                    <tr>
-                                        <td colspan="2">
-                                            <input type="hidden" name="eid" value="" />
+                            
+                            
+                            
+                            
+                <form action="#" method="post" enctype="multipart/form-data">
+                           
+                   <input type="hidden" name="emp_name" value="<?php echo $_SESSION['user'];	
+?>" />
 
-                                        </td>
-                                    </tr>
+ <input type="hidden" name="emp_id" value="<?php echo $_SESSION['emp_id'];	
+?>" />
+                           
+                                <table width="60%" height="297" border="0" cellpadding="0" cellspacing="0">
+                                
+                                
+                                
+                              
                                     <tr>
                                         <td width="14%">Subject :</td>
                                         <td width="86%">

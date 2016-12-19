@@ -52,7 +52,7 @@ else
                 <ul>
                       
  <li><a href="admin_home.php">Home</a></li>
-			<li><a href="viewusers.php">View Users</a></li>
+			<li><a href="view_users.php">View Users</a></li>
 			<li><a href="adduser.php">Add User</a></li>
 			<li><a href="edituser.php">Edit User</a></li>
 			<li><a href="delete_user.php">Delete User</a></li>

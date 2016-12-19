@@ -150,8 +150,8 @@ else
                                         <td width="22%">Plot Type</td>
                                         <td width="78%">
                                             <select name="plot_type" />                                      
-                                            <option value="commercialplot">Commercial Plot</option>
-                                            <option value="residencialplot">Residencial Plot</option>
+                                            <option value="Commercial Plot">Commercial Plot</option>
+                                            <option value="Residencial Plot">Residencial Plot</option>
                                             </select>
                                       </td>
                                     </tr>

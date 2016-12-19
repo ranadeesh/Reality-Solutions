@@ -1,15 +1,16 @@
- <?php
+<?php
  //session start
+ob_start();
  session_start();
+
   if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }
+ }  
  ?>
-
 <!DOCTYPE html> 
 <html>
 <head>
@@ -71,14 +72,14 @@ else
 
   <table>
     <tr>
-    <th>SNO</th>
-      <th>PROPERTY TYPE</th>
-      <th>PROPERTY NO</th>
-      <th>SALE VALUE</th>
-      <th>SOLD </th>
-      <th>DATE OF SALE  </th>
+    <th>SL No</th>
+      <th>Property Type</th>
+      <th>Property No</th>
+      <th>Sale Value</th>
+      <th>Sold </th>
+      <th>Date of Sale  </th>
     
-      <th>CONTACT</th>
+      <th>Contact Info</th>
    
     </tr>
  

@@ -48,7 +48,7 @@ else
 				<li> <a href="home.php"> Home </a></li>
                     <li class="current_page_item"><a href="view_plots.php">Plots</a></li>
                     <li><a href="apartments.php">Apartments</a></li>
-                    <li><a href="appoinments.php">Appointments</a></li>
+                    <li><a href="appointments.php">Appointments</a></li>
                     <li><a href="sales.php">Sales</a></li>
                     <li><a href="reports.php">Reports</a></li>
   		<li><a href="complaint.php">Complaints</a></li>
@@ -150,10 +150,10 @@ else
                                         <td width="39%">Apartment Type</td>
                                         <td width="61%">
                                     											
-											<select name="apt_type" />                                      
-                                            <option value="commercialapt">Commercial Apartment</option>
-                                            <option value="residencialapt">Residencial Apartment</option>
-                                            </select>
+										<select name="apt_type" />                                      
+                                            <option value="Commercial Apt">Commercial Apt</option>
+                                            <option value="Residencial Apt">Residencial Apt</option>
+                                        </select>
                                         </td>
                                     </tr>
                                     <tr>

@@ -1,13 +1,15 @@
- <?php
- // php session starts
+<?php
+ //session start
+ob_start();
  session_start();
-if(isset($_SESSION['user'])){
+
+  if(isset($_SESSION['user'])){
  $user = $_SESSION['user'];
  }
 else
  {
  header("Location:index.php");
- }
+ }  
  ?>
  
 <!DOCTYPE html>
@@ -40,7 +42,7 @@ else
 		
 						
 			<li><a href="admin_home.php">Home</a></li>
-			<li class="first current_page_item"><a href="viewusers.php">View Users</a></li>
+			<li class="first current_page_item"><a href="view_users.php">View Users</a></li>
 			<li><a href="adduser.php">Add User</a></li>
 			<li><a href="edituser.php">Edit User</a></li>
 			<li><a href="delete_user.php">Delete User</a></li>

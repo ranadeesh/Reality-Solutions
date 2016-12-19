@@ -1,5 +1,6 @@
 <?php
  //session start
+ob_start();
  session_start();
 
   if(isset($_SESSION['user'])){
@@ -78,8 +79,8 @@ else
 				 $plot_id=$_REQUEST['plot_id'];
 			     $plot_no=$_REQUEST['plot_no'];
 				$plot_type=$_REQUEST['plot_type'];
-					$plot_title=$_REQUEST['plot_title'];
-						$description=$_REQUEST['description'];
+				$plot_title=$_REQUEST['plot_title'];
+				$description=$_REQUEST['description'];
 			  $address=$_REQUEST['address'];
 			   $monthly_rent=$_REQUEST['monthly_rent'];
 			   $lease_availability=$_REQUEST['lease_availability'];
@@ -118,6 +119,7 @@ else
 				?>
 
                                 <form action="#" method="post" enctype="multipart/form-data">
+                                
                                   <input type="hidden" name="plot_no" value="<?php echo $re['plot_no']; ?>" />
                                   <input type="hidden" name="plot_id" value="<?php echo $plot_id; ?>" />
 								
@@ -146,24 +148,10 @@ else
                                         <tr>
                                             <td width="28%">Plot Type</td>
                                             <td width="63%">
-											  <select name="plot_type" >
-											  
-											  <?php if( $re['forsale'] == "yes" ){
-												  ?>
-												   <option value="residentialplot" selected>Residential Plot</option>
-											<?php  } 
-											else{ ?>
-                                                <option value="residentialplot">Residential Plot</option>
-											<?php} ?>
-											<?php if( $re['forsale'] == "no" ){
-												  ?>
-												    <option value="commeercialplot" selected>Commercial Plot</option>
-											<?php  } 
-											else{ ?>
-                                                <option value="commeercialplot">Commercial Plot</option>
-											<?php }
-}											?>
-                                               
+                                            
+											<select name="plot_type" />                                      
+                                            <option value="Commercial Plot">Commercial Plot</option>
+                                            <option value="Residencial Plot">Residencial Plot</option>
                                             </select>
                                                 
                                           </td>

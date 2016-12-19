@@ -54,7 +54,8 @@ else
          
         
 		    <li class="first">
-        <span class="opener">Sales<b></b></span>
+        
+         <span class="opener"><a href="sales.php">Sales</a></span>
         <ul>
           <li><a href="vew_vacant_plots.php">Vacation Plots</a></li>
           <li><a href="vew_sale_plots.php">Sold Plots</a></li>
@@ -75,19 +76,19 @@ else
 
                     <table width="80%" >
                         <tr> 
-                             <th>PLOT NO</th>
-                            <th>APT NO</th>
-                            <th>APT TYPE</th>
-                            <th>ADDRESS</th>
-                            <th>MONTHLY RENT</th>
-                            <th>CONTACT</th>
+                            
+                            <th>Sl No</th>
+                            <th>Property Type </th>
+                            <th>Address</th>
+                            <th>Monthly Resnt</th>
+                            <th>Contact Info</th>
                           
                             <th> </th>
                         </tr>
                         <!-- connecting to database -->
                         <?php
                       
-                     
+                      $a=1;
                         include("db.php");
 					  $res=mysql_query("select * from apartments where lease_availability = 'yes'");
 					  
@@ -97,11 +98,9 @@ else
 					  ?>
                            <tr>
                              <td>
-                                    <?php echo $re['plot_no']; ?>
+                                    <?php echo $a ; ?>
                                 </td>
-                                 <td>
-                                    <?php echo $re['apt_no']; ?>
-                                </td>
+                                
                                 <td>
                                     <?php echo $re['apt_type']; ?>
                                 </td>
@@ -115,13 +114,14 @@ else
                                     <?php echo $re['contact']; ?>
                                 </td>
                                
-                                <td><a href="view_apartment.php?aptid=<?php echo $re['id']; ?>"><img src="images/apartments/<?php echo $re['apt_img']; ?>" width="50" height="50" /></a>
+                                <td><a href="view_apartment.php?aptid=<?php echo $re['id']; ?>"> View</a>
                                   </td>
                             </tr>
                             <?php
-				 
+				  $a++;
 					  }
 					  ?>
+					  
                     </table>
                     <p>&nbsp;</p>
 
